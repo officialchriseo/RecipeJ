@@ -85,17 +85,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
     class RecipeViewHolder extends RecyclerView.ViewHolder{
 
-      //  TextView displayRecipeName;
         TextView recipeName;
         TextView recipeDescription;
         TextView recipeHeadline;
         TextView recipeProtein;
         ImageView recipeImage;
         TextView recipeRating;
-       // LinearLayout linearLayout;
 
-//        @BindView(R.id.displayRecipeName_TV)
-//        TextView displayRecipeName;
 //        @BindView(R.id.recipe_nameTV)
 //        TextView recipeName;
 //        @BindView(R.id.recipe_DescriptionTV)
@@ -108,20 +104,16 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 //        ImageView recipeImage;
 //        @BindView(R.id.recipe_RatingTV)
 //        TextView recipeRating;
-//        @BindView(R.id.linearLayout)
-//        LinearLayout linearLayout;
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
 
-           //  displayRecipeName = itemView.findViewById(R.id.displayRecipeName_TV);
              recipeName = itemView.findViewById(R.id.recipe_name);
              recipeDescription = itemView.findViewById(R.id.recipe_description);
             recipeHeadline = itemView.findViewById(R.id.recipe_headline);
              recipeProtein = itemView.findViewById(R.id.recipe_protein);
             recipeImage = itemView.findViewById(R.id.recipe_Image);
             recipeRating = itemView.findViewById(R.id.recipe_rating);
-           // linearLayout = itemView.findViewById(R.id.linearLayout);
 
         }
     }
