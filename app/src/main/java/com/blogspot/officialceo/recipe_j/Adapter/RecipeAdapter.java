@@ -7,14 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Response;
 import com.blogspot.officialceo.recipe_j.DetailsActivity;
 import com.blogspot.officialceo.recipe_j.POJO.Recipe;
 import com.blogspot.officialceo.recipe_j.R;
@@ -22,20 +18,15 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import butterknife.BindView;
-
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
 
     private List<Recipe> recipeList;
     private Context context;
 
-    private static int currentPosition = 0;
-
     public RecipeAdapter(Context context, List<Recipe> recipeList){
         this.recipeList = recipeList;
         this.context = context;
     }
-
 
     public void setRecipeList(List<Recipe> recipeList){
 
@@ -48,7 +39,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
     @NonNull
     @Override
     public RecipeAdapter.RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_first, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recipe_item, viewGroup, false);
         return new RecipeViewHolder(view);
     }
 
@@ -57,14 +48,12 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
         final Recipe recipe = recipeList.get(i);
 
-       // recipeViewHolder.displayRecipeName.setText(recipe.getName());
         recipeViewHolder.recipeDescription.setText(recipe.getDescription());
         recipeViewHolder.recipeProtein.setText(recipe.getProteins());
         recipeViewHolder.recipeRating.setText(recipe.getRating());
         recipeViewHolder.recipeName.setText(recipe.getName());
         recipeViewHolder.recipeHeadline.setText(recipe.getHeadline());
 
-      //  recipeViewHolder.linearLayout.setVisibility(View.GONE);
         Glide.with(context).load(recipe.getThumb()).into(recipeViewHolder.recipeImage);
 
         recipeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -83,18 +72,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
                 Toast.makeText(context, "Item at" + recipe, Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-       // if (currentPosition == i){
-
-//            Animation animation = AnimationUtils.loadAnimation(context, R.anim.slide_down);
-//
-//            recipeViewHolder.linearLayout.setVisibility(View.VISIBLE);
-//
-//            recipeViewHolder.linearLayout.startAnimation(animation);
-
-     //   }
 
     }
 

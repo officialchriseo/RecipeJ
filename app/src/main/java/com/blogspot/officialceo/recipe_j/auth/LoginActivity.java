@@ -112,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
         if (email.matches(loginEmail) && password.matches(loginPassword)){
             Intent myIntent = new Intent(this, FirstActivity.class);
             startActivity(myIntent);
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         }
         _loginButton.setEnabled(true);
         finish();
