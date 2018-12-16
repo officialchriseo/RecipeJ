@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.blogspot.officialceo.recipe_j.Adapter.RecipeAdapter;
 import com.blogspot.officialceo.recipe_j.Interface.ApiInterface;
 import com.blogspot.officialceo.recipe_j.POJO.Recipe;
-import com.blogspot.officialceo.recipe_j.auth.LoginActivity;
 import com.blogspot.officialceo.recipe_j.client.ApiClient;
 
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_first);
         ButterKnife.bind(this);
 
         recipeList = new ArrayList<>();
@@ -81,8 +80,8 @@ public class FirstActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
 
-                    mSwipeRefreshLayout.setRefreshing(false);
-                    progressDialog.dismiss();
+                   mSwipeRefreshLayout.setRefreshing(false);
+                    progressDialog.cancel();
 
                     recipeList = response.body();
                     Log.d("TAG", "Response == " + recipeList);
@@ -91,7 +90,7 @@ public class FirstActivity extends AppCompatActivity {
                 } else {
 
                     mSwipeRefreshLayout.setRefreshing(false);
-                    progressDialog.dismiss();
+                    progressDialog.cancel();
                     Toast.makeText(FirstActivity.this, "Error fetching data", Toast.LENGTH_SHORT).show();
 
                 }
