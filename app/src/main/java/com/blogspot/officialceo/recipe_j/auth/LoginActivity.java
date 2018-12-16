@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.app.ProgressDialog;
-import android.text.TextUtils;
 import android.util.Log;
 
 import android.content.Intent;
@@ -14,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.blogspot.officialceo.recipe_j.MainActivity;
+import com.blogspot.officialceo.recipe_j.FirstActivity;
 import com.blogspot.officialceo.recipe_j.R;
 
 import butterknife.BindView;
@@ -40,6 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
+        _emailText.setText(loginEmail);
+
+        _passwordText.setText(loginPassword);
 
 
         _loginButton.setOnClickListener(new View.OnClickListener() {
@@ -80,10 +82,6 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.show();
 
 
-
-        // TODO: Implement your own authentication logic here.
-
-
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -112,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         if (email.matches(loginEmail) && password.matches(loginPassword)){
-            Intent myIntent = new Intent(this, MainActivity.class);
+            Intent myIntent = new Intent(this, FirstActivity.class);
             startActivity(myIntent);
         }
         _loginButton.setEnabled(true);
