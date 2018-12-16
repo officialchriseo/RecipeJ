@@ -48,6 +48,8 @@ dependencies {
     implementation 'com.github.varunest:sparkbutton:1.0.6'
     //AutoFit TextView
     implementation 'com.github.AndroidDeveloperLB:AutoFitTextView:4'
+    //Like Button
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 
 
 }
