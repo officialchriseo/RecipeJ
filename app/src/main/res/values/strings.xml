@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Recipe-J</string>
+    <string name="no_account">No account yet? Create one</string>
+    <string name="login">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="email">Email</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="description">Description</string>
+    <string name="rating">Rating</string>
+    <string name="protein">Protein</string>
+    <string name="head_line">Head Line</string>
+    <string name="recipe_name">Recipe Name</string>
+</resources>
