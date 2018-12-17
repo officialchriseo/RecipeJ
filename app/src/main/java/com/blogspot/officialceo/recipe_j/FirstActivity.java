@@ -1,6 +1,9 @@
 package com.blogspot.officialceo.recipe_j;
 
+import android.app.ActionBar;
 import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,7 +46,6 @@ public class FirstActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         recipeList = new ArrayList<>();
-        //  LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recipeAdapter = new RecipeAdapter(getApplicationContext(), recipeList);
@@ -81,7 +83,7 @@ public class FirstActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
 
                    mSwipeRefreshLayout.setRefreshing(false);
-                    progressDialog.cancel();
+
 
                     recipeList = response.body();
                     Log.d("TAG", "Response == " + recipeList);
@@ -90,7 +92,7 @@ public class FirstActivity extends AppCompatActivity {
                 } else {
 
                     mSwipeRefreshLayout.setRefreshing(false);
-                    progressDialog.cancel();
+
                     Toast.makeText(FirstActivity.this, "Error fetching data", Toast.LENGTH_SHORT).show();
 
                 }

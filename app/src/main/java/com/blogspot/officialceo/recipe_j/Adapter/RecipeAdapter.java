@@ -1,7 +1,9 @@
 package com.blogspot.officialceo.recipe_j.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import com.blogspot.officialceo.recipe_j.DetailsActivity;
 import com.blogspot.officialceo.recipe_j.POJO.Recipe;
 import com.blogspot.officialceo.recipe_j.R;
 import com.bumptech.glide.Glide;
+import com.like.LikeButton;
 
 import java.util.List;
 
@@ -91,6 +94,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         TextView recipeProtein;
         ImageView recipeImage;
         TextView recipeRating;
+        LikeButton likeButton;
 
 //        @BindView(R.id.recipe_nameTV)
 //        TextView recipeName;
@@ -105,7 +109,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 //        @BindView(R.id.recipe_RatingTV)
 //        TextView recipeRating;
 
-        public RecipeViewHolder(@NonNull View itemView) {
+        public RecipeViewHolder(@NonNull final View itemView) {
             super(itemView);
 
              recipeName = itemView.findViewById(R.id.recipe_name);
@@ -114,6 +118,15 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
              recipeProtein = itemView.findViewById(R.id.recipe_protein);
             recipeImage = itemView.findViewById(R.id.recipe_Image);
             recipeRating = itemView.findViewById(R.id.recipe_rating);
+            likeButton = itemView.findViewById(R.id.star_button);
+
+            likeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = context.getSharedPreferences("com.blogspot.officialceo.recipe_j.Adapter", Context.MODE_PRIVATE).edit();
+
+                }
+            });
 
         }
     }

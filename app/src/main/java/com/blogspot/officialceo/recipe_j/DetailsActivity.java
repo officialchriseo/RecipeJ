@@ -60,6 +60,8 @@ public class DetailsActivity extends AppCompatActivity {
         recipe_headline.setVisibility(View.VISIBLE);
 
         collapsingToolbarLayout.setTitle(recipeName);
+        collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.white));
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.white));
 
         Glide.with(this).load(recipeImage).into(recipe_Image);
 
