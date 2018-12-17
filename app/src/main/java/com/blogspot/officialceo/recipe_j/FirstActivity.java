@@ -1,7 +1,10 @@
 package com.blogspot.officialceo.recipe_j;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -50,7 +53,6 @@ public class FirstActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(gridLayoutManager);
         recipeAdapter = new RecipeAdapter(getApplicationContext(), recipeList);
         recyclerView.setAdapter(recipeAdapter);
-
 
         loadRecipeData();
 

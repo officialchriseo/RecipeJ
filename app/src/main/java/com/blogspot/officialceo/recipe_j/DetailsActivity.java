@@ -3,6 +3,7 @@ package com.blogspot.officialceo.recipe_j;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -51,11 +52,26 @@ public class DetailsActivity extends AppCompatActivity {
         String recipeHeadline = getIntent().getExtras().getString("recipeHeadline");
         String recipeImage = getIntent().getExtras().getString("recipeImage");
 
+        if (TextUtils.isEmpty(recipeProtein)){
+            recipe_protein.setText("0");
+        }else {
+
+            recipe_protein.setText(recipeProtein);
+
+        }if (TextUtils.isEmpty(recipeRating)){
+
+            recipe_rating.setText("0");
+
+        }else{
+
+            recipe_rating.setText(recipeRating);
+
+        }
+
         recipe_name.setText(recipeName);
         recipe_description.setText(recipeDescription);
-        recipe_protein.setText(recipeProtein);
-        recipe_rating.setText(recipeRating);
         recipe_headline.setText(recipeHeadline);
+
 
         recipe_headline.setVisibility(View.VISIBLE);
 

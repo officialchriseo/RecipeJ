@@ -18,6 +18,7 @@ import com.blogspot.officialceo.recipe_j.POJO.Recipe;
 import com.blogspot.officialceo.recipe_j.R;
 import com.bumptech.glide.Glide;
 import com.like.LikeButton;
+import com.like.OnLikeListener;
 
 import java.util.List;
 
@@ -120,13 +121,27 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
             recipeRating = itemView.findViewById(R.id.recipe_rating);
             likeButton = itemView.findViewById(R.id.star_button);
 
-            likeButton.setOnClickListener(new View.OnClickListener() {
+            likeButton.setOnLikeListener(new OnLikeListener() {
                 @Override
-                public void onClick(View v) {
+                public void liked(LikeButton likeButton) {
+
                     @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = context.getSharedPreferences("com.blogspot.officialceo.recipe_j.Adapter", Context.MODE_PRIVATE).edit();
+                    editor.putBoolean("buttonLiked", true);
+                    editor.apply();
+
+                }
+
+                @Override
+                public void unLiked(LikeButton likeButton) {
+
+                    @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = context.getSharedPreferences("com.blogspot.officialceo.recipe_j.Adapter", Context.MODE_PRIVATE).edit();
+                    editor.putBoolean("buttonUnliked", true);
+                    editor.apply();
 
                 }
             });
+
+
 
         }
     }
